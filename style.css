@@ -1,0 +1,39 @@
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+}
+
+h1,
+.name-subheader {
+  font-size: 2rem;
+}
+
+.name-subheader {
+  font-weight: 700;
+  color: #4086EF;
+}
+
+article {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-column-gap: 50px;
+  margin: 3rem 0;
+}
+
+article li {
+  margin: 0.5rem 0;
+
+}
+
+article p {
+  margin: 1rem 0;
+}
+
+.intro {
+  margin: 1.5rem 0;
+}
