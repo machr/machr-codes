@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <div class="container">
+  <header>
     <h1>Mark Christiansen</h1>
     <span class="name-subheader">Software Engineer</span>
     <p class="intro">Hi! I'm an ambitious and creative full-stack developer, and I'm particularly passionate about
@@ -28,6 +28,8 @@
       aspire to make software that people enjoy using, while working with my team to improve all of our collective
       skills.
     </p>
+  </header>
+  <main>
     <div>
       <h2>Work Experience</h2>
       <article>
@@ -109,7 +111,29 @@
         </section>
       </article>
     </div>
-  </div>
+  </main>
+  <footer>
+    <h3>Changelog</h3>
+    <ul id="commits"></ul>
+    <script>
+
+      async function getUsers() {
+        const url = 'https://api.github.com/repos/machr/machr-codes/commits';
+        const res = await fetch(url);
+        return await res.json();
+      }
+
+      async function renderCommitHistory() {
+        const commits = await getUsers();
+        const container = document.querySelector('#commits');
+        commits.map(commit => {
+          const commitElement = `<li><a href="${commit.html_url}">${commit.commit.message}</a></li>`;
+          container.innerHTML += commitElement;
+        });
+      }
+      renderCommitHistory();
+    </script>
+  </footer>
 </body>
 
 </html>
